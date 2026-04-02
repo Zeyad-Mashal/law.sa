@@ -1,0 +1,107 @@
+/* الخطوة 2 — رمز التحقق (6 أرقام) */
+.fp-otp-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fp-otp-label {
+  display: block;
+  font-size: 0.875rem;
+  color: #a3a3a3;
+  text-align: right;
+}
+
+.fp-otp-label .fp-req {
+  color: #dc2626;
+}
+
+.fp-otp-row {
+  direction: ltr;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: clamp(0.35rem, 2vw, 0.5rem);
+  width: 100%;
+}
+
+.fp-otp-cell {
+  box-sizing: border-box;
+  width: clamp(2.5rem, 11vw, 3rem);
+  height: clamp(2.75rem, 12vw, 3.25rem);
+  border: none;
+  border-radius: 0.75rem;
+  background: #f3f4f6;
+  font-size: clamp(1.1rem, 4vw, 1.35rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: #0a0a0a;
+  text-align: center;
+  outline: none;
+  transition:
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.fp-otp-cell:focus {
+  box-shadow: 0 0 0 2px #0a0a0a;
+  background: #ffffff;
+}
+
+.fp-otp-cell::placeholder {
+  color: #d4d4d4;
+}
+
+.fp-otp-row--error .fp-otp-cell {
+  box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.45);
+  background: #fef2f2;
+}
+
+.fp-otp-row--error .fp-otp-cell:focus {
+  box-shadow: 0 0 0 2px #dc2626;
+}
+
+.fp-resend {
+  margin: 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #737373;
+}
+
+.fp-resend-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  color: #0a0a0a;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.fp-resend-btn:hover {
+  color: #404040;
+}
+
+.fp-resend-btn:disabled {
+  color: #a3a3a3;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.fp-back-link {
+  display: block;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #737373;
+  text-decoration: none;
+}
+
+.fp-back-link:hover {
+  color: #0a0a0a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

@@ -1,0 +1,189 @@
+/* استرجاع كلمة المرور — الخطوة 1 */
+.fp-page {
+  direction: rtl;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 2.5rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.fp-inner {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.fp-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.fp-brand {
+  font-size: clamp(1.75rem, 4vw, 2rem);
+  font-weight: 700;
+  color: #0a0a0a;
+  line-height: 1.2;
+}
+
+.fp-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #0a0a0a;
+}
+
+.fp-subtitle {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #737373;
+  line-height: 1.65;
+  max-width: 20rem;
+}
+
+.fp-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.fp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fp-label {
+  display: block;
+  font-size: 0.875rem;
+  color: #a3a3a3;
+  text-align: right;
+}
+
+.fp-label .fp-req {
+  color: #dc2626;
+}
+
+.fp-phone-row {
+  direction: ltr;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #f3f4f6;
+  border: 1px solid transparent;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.fp-phone-row--error {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.15);
+}
+
+.fp-phone-prefix {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  color: #404040;
+  border-inline-end: 1px solid rgba(229, 229, 229, 0.9);
+}
+
+.fp-phone-flag-wrap {
+  position: relative;
+  display: block;
+  width: 2.5rem;
+  height: 1.65rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.fp-flag-img {
+  object-fit: contain;
+  object-position: center;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.fp-phone-code {
+  font-variant-numeric: tabular-nums;
+}
+
+.fp-input-phone {
+  min-width: 0;
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.875rem 0.75rem 0.875rem 1rem;
+  font-size: 1rem;
+  color: #262626;
+  outline: none;
+  text-align: start;
+}
+
+.fp-input-phone::placeholder {
+  color: #a3a3a3;
+}
+
+.fp-field-error {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #dc2626;
+  text-align: right;
+  line-height: 1.4;
+}
+
+.fp-submit {
+  width: 100%;
+  border: none;
+  border-radius: 0.75rem;
+  background: #0a0a0a;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.875rem 1rem;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.fp-submit:hover {
+  opacity: 0.92;
+}
+
+.fp-submit:active {
+  opacity: 0.85;
+}
+
+.fp-footer {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #525252;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.fp-footer-link {
+  font-weight: 700;
+  color: #0a0a0a;
+  text-decoration: none;
+}
+
+.fp-footer-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
