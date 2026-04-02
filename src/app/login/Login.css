@@ -1,0 +1,250 @@
+/* صفحة تسجيل الدخول — اتجاه عربي من اليمين إلى اليسار */
+.login-page {
+  direction: rtl;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 2.5rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.login-inner {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.login-brand {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.login-heading {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #0a0a0a;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.login-label {
+  display: block;
+  font-size: 0.875rem;
+  color: #a3a3a3;
+  text-align: right;
+}
+.login-label span {
+  color: #dc2626;
+}
+
+/* صف رقم الجوال: اتجاه LTR للأرقام والكود كما في التصميم */
+.login-phone-row {
+  direction: ltr;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #f5f5f5;
+  border: 1px solid transparent;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.login-phone-row--error {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.15);
+}
+
+.login-phone-prefix {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  color: #404040;
+}
+
+.login-phone-flag-wrap {
+  position: relative;
+  display: block;
+  width: 2.5rem;
+}
+
+/* صورة العلم — fill داخل الإطار + contain لوضوح بدون تشويه */
+.login-flag-img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.login-phone-code {
+  font-variant-numeric: tabular-nums;
+}
+
+.login-input-phone {
+  min-width: 0;
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.875rem 0.75rem 0.875rem 1rem;
+  font-size: 1rem;
+  color: #262626;
+  outline: none;
+  text-align: start;
+}
+
+.login-input-phone::placeholder {
+  color: #a3a3a3;
+}
+
+.login-password-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.login-input-password {
+  min-width: 0;
+  flex: 1;
+  border: none;
+  border-radius: 0.75rem;
+  background: #f5f5f5;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #262626;
+  outline: none;
+  text-align: right;
+}
+
+.login-input-password::placeholder {
+  color: #a3a3a3;
+}
+
+.login-input-password--error {
+  box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.35);
+}
+
+.login-field-error {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #dc2626;
+  text-align: right;
+  line-height: 1.4;
+}
+
+.login-toggle-password {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: none;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #a3a3a3;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.login-toggle-password:hover {
+  color: #525252;
+}
+
+.login-toggle-password:focus-visible {
+  outline: 2px solid #a3a3a3;
+  outline-offset: 2px;
+}
+
+.login-toggle-password svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.login-forgot-wrap {
+  text-align: right;
+}
+
+.login-forgot {
+  font-size: 0.875rem;
+  color: #a3a3a3;
+  text-decoration: none;
+}
+
+.login-forgot:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.login-submit {
+  width: 100%;
+  border: none;
+  border-radius: 0.75rem;
+  background: #0a0a0a;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.875rem 1rem;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.login-submit:hover {
+  opacity: 0.9;
+}
+
+.login-submit:active {
+  opacity: 0.82;
+}
+
+.login-footer {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #525252;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.login-footer-link {
+  font-weight: 600;
+  color: #0a0a0a;
+  text-decoration: none;
+}
+
+.login-footer-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
