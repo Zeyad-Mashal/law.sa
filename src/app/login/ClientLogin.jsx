@@ -89,7 +89,7 @@ function LoginForm() {
         ) : null}
 
         <header className="login-header">
-          <span className="login-brand">واثقون</span>
+          <span className="login-brand">Law.sa</span>
           <h1 className="login-heading">تسجيل الدخول</h1>
         </header>
 

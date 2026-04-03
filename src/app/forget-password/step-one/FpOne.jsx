@@ -38,7 +38,7 @@ export default function FpOne() {
     <main className="fp-page">
       <div className="fp-inner">
         <header className="fp-header">
-          <span className="fp-brand">واثقون</span>
+          <span className="fp-brand">Law.sa</span>
           <h1 className="fp-title">استرجاع كلمة المرور</h1>
           <p className="fp-subtitle">
             قم بادخال رقم الجوال وسنقوم بارسال رمز التفعيل

@@ -244,7 +244,7 @@ export default function ClientRegister() {
     <main className="reg-page">
       <div className="reg-inner">
         <header className="reg-header">
-          <span className="reg-brand">واثقون</span>
+          <span className="reg-brand">Law.sa</span>
           <h1 className="reg-title">تسجيل حساب جديد</h1>
         </header>
 

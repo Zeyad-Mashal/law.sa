@@ -101,7 +101,7 @@ export default function FpTwo() {
     <main className="fp-page">
       <div className="fp-inner">
         <header className="fp-header">
-          <span className="fp-brand">واثقون</span>
+          <span className="fp-brand">Law.sa</span>
           <h1 className="fp-title">رمز التحقق</h1>
           <p className="fp-subtitle">
             أدخل الرمز المكوّن من 6 أرقام المرسل إلى جوالك

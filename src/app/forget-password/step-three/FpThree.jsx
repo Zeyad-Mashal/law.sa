@@ -40,7 +40,7 @@ export default function FpThree() {
     <main className="fp-page">
       <div className="fp-inner">
         <header className="fp-header">
-          <span className="fp-brand">واثقون</span>
+          <span className="fp-brand">Law.sa</span>
           <h1 className="fp-title">كلمة المرور الجديدة</h1>
           <p className="fp-subtitle">
             أدخل كلمة المرور الجديدة وتأكيدها ثم احفظ التغيير

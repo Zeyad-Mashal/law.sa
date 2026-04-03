@@ -9,7 +9,7 @@ export default function Home() {
       <div className="max-w-lg text-center space-y-8">
         <div className="mx-auto h-px w-16 bg-linear-to-l from-transparent via-slate-300/60 to-transparent" aria-hidden />
         <h1 className="text-3xl sm:text-4xl font-extralight text-slate-600 tracking-wide leading-[1.7]">
-          اهلا بكم في مشروع واثقون
+          اهلا بكم في مشروع Law.sa
         </h1>
         <p className="text-base sm:text-lg text-slate-600/90 font-light leading-loose">
           المشروع تحت الانشاء في الوقت الحالي و سيتم الاطلاق في اقرب وقت انتظرونا.
