@@ -269,6 +269,15 @@
   opacity: 0.82;
 }
 
+.login-submit:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
+
+.login-submit:disabled:hover {
+  opacity: 0.42;
+}
+
 .login-footer {
   margin: 0;
   font-size: 0.875rem;

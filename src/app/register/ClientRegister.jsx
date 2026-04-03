@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { FiCheck, FiEye, FiEyeOff, FiUploadCloud } from "react-icons/fi";
 import { LuCalendarDays } from "react-icons/lu";
@@ -56,6 +57,7 @@ function connectorClass(beforeStep, currentStep) {
 }
 
 export default function ClientRegister() {
+  const router = useRouter();
   const [step, setStep] = useState(1);
 
   const [fullName, setFullName] = useState("");
@@ -86,6 +88,40 @@ export default function ClientRegister() {
     const r = REGIONS.find((x) => x.id === regionId);
     return r ? r.cities : [];
   }, [regionId]);
+
+  const canStep1Next = useMemo(() => {
+    if (!fullName.trim()) return false;
+    if (!/^5\d{8}$/.test(phone)) return false;
+    if (!EMAIL_RE.test(email.trim())) return false;
+    const pw = password.trim();
+    if (pw.length < 6) return false;
+    return confirmPassword.trim() === pw;
+  }, [fullName, phone, email, password, confirmPassword]);
+
+  const canStep2Next = useMemo(
+    () => Boolean(regionId && city),
+    [regionId, city],
+  );
+
+  const canFinalSubmit = useMemo(() => {
+    if (!canStep1Next || !canStep2Next) return false;
+    if (!licenseFile || licenseFile.size > MAX_FILE_BYTES) return false;
+    if (!startDate || !endDate) return false;
+    if (endDate < startDate) return false;
+    if (!licenseNumber.trim()) return false;
+    if (!agreeTerms) return false;
+    return Boolean(licenseType && country);
+  }, [
+    canStep1Next,
+    canStep2Next,
+    licenseFile,
+    startDate,
+    endDate,
+    licenseNumber,
+    agreeTerms,
+    licenseType,
+    country,
+  ]);
 
   useEffect(() => {
     if (!licenseFile) {
@@ -198,15 +234,17 @@ export default function ClientRegister() {
 
   function onFinalSubmit(ev) {
     ev.preventDefault();
+    if (!canFinalSubmit) return;
     if (!validateStep3()) return;
     // TODO: إرسال للخادم
+    router.push("/");
   }
 
   return (
     <main className="reg-page">
       <div className="reg-inner">
         <header className="reg-header">
-          <span className="reg-brand">بيّنة</span>
+          <span className="reg-brand">واثقون</span>
           <h1 className="reg-title">تسجيل حساب جديد</h1>
         </header>
 
@@ -378,9 +416,7 @@ export default function ClientRegister() {
                   type="button"
                   className="reg-toggle-password"
                   onClick={() => setShowConfirm((v) => !v)}
-                  aria-label={
-                    showConfirm ? "إخفاء التأكيد" : "إظهار التأكيد"
-                  }
+                  aria-label={showConfirm ? "إخفاء التأكيد" : "إظهار التأكيد"}
                 >
                   {showConfirm ? (
                     <FiEyeOff strokeWidth={1.5} />
@@ -396,7 +432,11 @@ export default function ClientRegister() {
               ) : null}
             </div>
 
-            <button type="submit" className="reg-btn">
+            <button
+              type="submit"
+              className="reg-btn"
+              disabled={!canStep1Next}
+            >
               التالي
             </button>
           </form>
@@ -468,7 +508,11 @@ export default function ClientRegister() {
               ) : null}
             </div>
 
-            <button type="submit" className="reg-btn">
+            <button
+              type="submit"
+              className="reg-btn"
+              disabled={!canStep2Next}
+            >
               التالي
             </button>
           </form>
@@ -536,9 +580,8 @@ export default function ClientRegister() {
                   <FiUploadCloud strokeWidth={1.25} />
                 </span>
                 <p className="reg-upload-text">
-                  اضغط{" "}
-                  <span className="reg-upload-link">هنا لرفع الملفات</span> أو
-                  قم بإدراج الملفات هنا
+                  اضغط <span className="reg-upload-link">هنا لرفع الملفات</span>{" "}
+                  أو قم بإدراج الملفات هنا
                 </p>
                 <p className="reg-upload-hint">
                   image/jpeg, image/png, image/jpg, image/webp, application/pdf
@@ -677,8 +720,7 @@ export default function ClientRegister() {
                 }}
               />
               <span>
-                أوافق على{" "}
-                <Link href="/terms">الشروط و الأحكام</Link>
+                أوافق على <Link href="/terms">الشروط و الأحكام</Link>
                 {" و "}
                 <Link href="/privacy">سياسة الخصوصية</Link>
               </span>
@@ -688,16 +730,18 @@ export default function ClientRegister() {
                 {errors.terms}
               </p>
             ) : null}
-
-            <button type="submit" className="reg-btn">
+            <button
+              type="submit"
+              className="reg-btn"
+              disabled={!canFinalSubmit}
+            >
               إرسال رمز التفعيل
             </button>
           </form>
         </div>
 
         <p className="reg-footer">
-          لديك حساب؟{" "}
-          <Link href="/login">تسجيل الدخول</Link>
+          لديك حساب؟ <Link href="/login">تسجيل الدخول</Link>
         </p>
       </div>
     </main>

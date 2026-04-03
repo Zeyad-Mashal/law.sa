@@ -332,7 +332,9 @@
   text-align: center;
   background: #fafafa;
   cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
 }
 
 .reg-upload:hover,
@@ -544,10 +546,20 @@
   padding: 0.875rem 1rem;
   cursor: pointer;
   transition: opacity 0.15s ease;
+  text-align: center;
 }
 
 .reg-btn:hover {
   opacity: 0.92;
+}
+
+.reg-btn:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
+
+.reg-btn:disabled:hover {
+  opacity: 0.42;
 }
 
 .reg-footer {
