@@ -15,8 +15,6 @@ export default function Home() {
           المشروع تحت الانشاء في الوقت الحالي و سيتم الاطلاق في اقرب وقت انتظرونا.
         </p>
         <div className="mx-auto h-px w-24 bg-linear-to-r from-transparent via-stone-200 to-transparent" aria-hidden />
-        <Link href="/login" className="text-blue-500 mt-4">تسجيل الدخول</Link>
-        <Link href="/register" className="text-blue-500 mt-4 mr-4">تسجيل حساب جديد</Link>
       </div>
     </main>
   );
