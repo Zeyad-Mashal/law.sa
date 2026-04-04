@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Cairo } from "next/font/google";
-import Navbar from "./Components/Navbar/Navbar";
+import ConditionalNavbar from "./Components/Navbar/ConditionalNavbar";
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
   variable: "--font-cairo",
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl" className={cairo.variable}>
       <body className="min-h-full flex flex-col font-sans antialiased">
-        <Navbar />
+        <ConditionalNavbar />
         {children}
       </body>
     </html>
