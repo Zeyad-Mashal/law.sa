@@ -8,7 +8,7 @@ import "./Navbar.css";
 
 const NAV_CATEGORIES = [
   { href: "#", label: "المملكة العربية السعودية" },
-  { href: "#", label: "العالم" },
+  { href: "/lawyers", label: "المحامون" },
   { href: "#", label: "أعمال المحاماة" },
   { href: "#", label: "ممارسة القانون" },
   { href: "#", label: "الشؤون القانونية للشركات" },

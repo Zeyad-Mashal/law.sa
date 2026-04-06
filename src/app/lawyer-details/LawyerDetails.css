@@ -1,0 +1,234 @@
+/* تفاصيل المحامي — متناسقة مع صفحة دليل المحامين */
+
+.ld-page {
+  direction: rtl;
+  min-height: calc(100vh - 1px);
+  padding: 2rem 1.25rem 3.5rem;
+  box-sizing: border-box;
+  background: linear-gradient(
+    165deg,
+    #f8fafc 0%,
+    #f1f5f9 38%,
+    #fafaf9 100%
+  );
+}
+
+.ld-wrap {
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.ld-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #64748b;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: color 0.15s ease;
+}
+
+.ld-back:hover {
+  color: #0f172a;
+}
+
+.ld-back-icon {
+  flex-shrink: 0;
+}
+
+.ld-profile {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1.35rem 1.35rem 1.25rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  margin-bottom: 1.25rem;
+}
+
+.ld-profile-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.ld-avatar {
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 0.85rem;
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  color: #334155;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ld-profile-head {
+  min-width: 0;
+  flex: 1;
+}
+
+.ld-name {
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.25rem, 3.5vw, 1.5rem);
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.ld-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+}
+
+.ld-meta {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9375rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.ld-meta li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.ld-meta li svg {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  opacity: 0.75;
+}
+
+.ld-exp {
+  color: #334155;
+  font-weight: 600;
+}
+
+.ld-section {
+  margin-bottom: 1.25rem;
+}
+
+.ld-section-title {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.ld-bio {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: #475569;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.85rem;
+  padding: 1rem 1.15rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+.ld-contact-gate .ld-section-title {
+  margin-bottom: 0.75rem;
+}
+
+.ld-lock-card {
+  background: #f8fafc;
+  border: 1px dashed #94a3b8;
+  border-radius: 0.85rem;
+  padding: 1.25rem 1.15rem;
+  text-align: center;
+}
+
+.ld-lock-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: 0 auto 0.85rem;
+  border-radius: 9999px;
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.ld-lock-text {
+  margin: 0 0 0.65rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #334155;
+  line-height: 1.65;
+}
+
+.ld-lock-sub {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #64748b;
+  line-height: 1.65;
+}
+
+.ld-cta-row {
+  margin-top: 1.75rem;
+}
+
+.ld-btn-book {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: #0f172a;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.9rem 1.25rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.ld-btn-book:hover {
+  background: #1e293b;
+}
+
+.ld-btn-book:active {
+  transform: scale(0.99);
+}
+
+.ld-not-found {
+  text-align: center;
+  padding: 2.5rem 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+}
+
+.ld-not-found-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.ld-not-found-hint {
+  margin: 0 0 1.25rem;
+  font-size: 0.9375rem;
+  color: #64748b;
+  line-height: 1.7;
+}
