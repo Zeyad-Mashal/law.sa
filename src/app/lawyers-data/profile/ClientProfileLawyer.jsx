@@ -1,6 +1,7 @@
  "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import "./Profile.css";
 
 const EMPTY_FORM = {
@@ -97,9 +98,9 @@ const ClientProfile = () => {
     <main className="lp-page">
       <div className="lp-wrap">
         <header className="lp-header">
-          <button type="button" className="lp-btn-view">
+          <Link href="/lawyers-data/consultations" className="lp-btn-view">
             عرض الاستشارات
-          </button>
+          </Link>
           <h1 className="lp-title">إدارة خدمات المحامي</h1>
           <p className="lp-subtitle">
             أضيفي خدماتك، وحدّثي التفاصيل، واحذفي أي خدمة غير متاحة حالياً.
