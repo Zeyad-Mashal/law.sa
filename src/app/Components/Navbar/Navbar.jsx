@@ -252,7 +252,7 @@ export default function Navbar() {
             <Link href="/login" className="nav-btn-outline">
               تسجيل الدخول
             </Link>
-            <Link href="/register" className="nav-btn-solid nav-btn-compact">
+            <Link href="/signup" className="nav-btn-solid nav-btn-compact">
               إنشاء حساب
             </Link>
           </div>
@@ -358,7 +358,7 @@ export default function Navbar() {
               تسجيل الدخول
             </Link>
             <Link
-              href="/register"
+              href="/signup"
               className="nav-btn-solid"
               onClick={() => setMenuOpen(false)}
             >

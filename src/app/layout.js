@@ -1,10 +1,5 @@
 import "./globals.css";
-import { Cairo } from "next/font/google";
 import ConditionalNavbar from "./Components/Navbar/ConditionalNavbar";
-const cairo = Cairo({
-  subsets: ["arabic", "latin"],
-  variable: "--font-cairo",
-});
 
 export const metadata = {
   title: "Law.sa",
@@ -13,7 +8,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ar" dir="rtl" className={cairo.variable}>
+    <html lang="ar" dir="rtl">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet" />
+      </head>
       <body className="min-h-full flex flex-col font-sans antialiased">
         <ConditionalNavbar />
         {children}

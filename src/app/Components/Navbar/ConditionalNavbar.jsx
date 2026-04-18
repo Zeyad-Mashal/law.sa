@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { Suspense } from "react";
 import Navbar from "./Navbar";
 
-const HIDE_NAV_PATHS = ["/login", "/register"];
+const HIDE_NAV_PATHS = ["/login", "/register", "/signup"];
 
 function NavbarGate() {
   const pathname = usePathname();

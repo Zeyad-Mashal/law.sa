@@ -112,7 +112,7 @@ export default function ClientLawyerDetails() {
         </section>
 
         <div className="ld-cta-row">
-          <Link href="/register" className="ld-btn-book">
+          <Link href="/book-consultation" className="ld-btn-book">
             احجز استشارتك الآن
           </Link>
         </div>
