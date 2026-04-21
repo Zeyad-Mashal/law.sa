@@ -5,17 +5,13 @@ import { useRouter } from "next/navigation";
 import { Fragment, useEffect, useId, useMemo, useRef, useState } from "react";
 import { FiGrid, FiInfo, FiMenu, FiSearch, FiX } from "react-icons/fi";
 import "./Navbar.css";
+import Image from "next/image";
 
 const NAV_CATEGORIES = [
   { href: "#", label: "المملكة العربية السعودية" },
   { href: "/lawyers", label: "المحامون" },
   { href: "#", label: "أعمال المحاماة" },
   { href: "#", label: "ممارسة القانون" },
-  { href: "#", label: "الشؤون القانونية للشركات" },
-  { href: "#", label: "التقنية القانونية" },
-  { href: "#", label: "التصنيفات وبيانات السوق" },
-  { href: "#", label: "فعاليات" },
-  { href: "#", label: "أقسام أخرى" },
 ];
 
 /** بيانات تجريبية للبحث — يمكن استبدالها بـ API */
@@ -245,7 +241,7 @@ export default function Navbar() {
           </div>
 
           <Link href="/" className="nav-logo">
-            LAW.SA
+              LAW.SA
           </Link>
 
           <div className="nav-actions">

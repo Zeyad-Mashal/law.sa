@@ -1,0 +1,346 @@
+/* ——— دخول متتابع للهيرو (مرة عند التحميل) ——— */
+@keyframes hero-reveal-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.hero_reveal .hero_content > h1,
+.hero_reveal .hero_content > p,
+.hero_reveal .hero_content > .hero_buttons,
+.hero_reveal .hero_content > hr,
+.hero_reveal .hero_content > .hero_trust,
+.hero_reveal .hero_container > .hero_image {
+  opacity: 0;
+  /* أبطأ وأنعم — تتابع أوضح بين العناصر */
+  animation: hero-reveal-in 0.78s cubic-bezier(0.33, 1, 0.32, 1) forwards;
+}
+
+.hero_reveal .hero_content > h1 {
+  animation-delay: 0.08s;
+}
+.hero_reveal .hero_content > p {
+  animation-delay: 0.24s;
+}
+.hero_reveal .hero_content > .hero_buttons {
+  animation-delay: 0.4s;
+}
+.hero_reveal .hero_content > hr {
+  animation-delay: 0.56s;
+}
+.hero_reveal .hero_content > .hero_trust {
+  animation-delay: 0.72s;
+}
+.hero_reveal .hero_container > .hero_image {
+  animation-delay: 0.08s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero_reveal .hero_content > h1,
+  .hero_reveal .hero_content > p,
+  .hero_reveal .hero_content > .hero_buttons,
+  .hero_reveal .hero_content > hr,
+  .hero_reveal .hero_content > .hero_trust,
+  .hero_reveal .hero_container > .hero_image {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero,
+.hero_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero_container {
+  width: 95%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  background-color: #183a39;
+  border-radius: 16px;
+  padding: 60px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+  color: #fff;
+}
+.hero_content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 2rem;
+  /* width: 45%; */
+}
+.hero_content > h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  color: #fff;
+  text-align: right;
+}
+.hero_content > h1 > span {
+  color: #e2aa40;
+}
+.hero_content > p {
+  font-size: 1.3rem;
+  text-align: right;
+  width: 80%;
+}
+.hero_buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.hero_buttons > button {
+  padding: 10px 20px;
+  border-radius: 24px;
+  border: none;
+  background-color: #e2aa40;
+  color: #143b3a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .hero_buttons > button:hover {
+    transform: translateY(-5px);
+  }
+}
+.hero_buttons > button:first-child {
+  box-shadow: 1px 1px 20px 0 rgba(226, 170, 64, 0.5);
+}
+.hero_buttons > button:last-child {
+  background-color: transparent;
+  border: 2px solid #ccc;
+  color: #fff;
+}
+.hero_buttons > button:last-child:hover {
+  background-color: #fff;
+  color: #143b3a;
+}
+.hero_content > hr {
+  width: 85%;
+  height: 1px;
+  color: #666;
+  margin: 20px 0;
+}
+.hero_trust {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+.hero_trust_item > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.hero_trust_item > p > svg {
+  padding: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #e2aa40;
+}
+.hero_image {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+}
+.hero_image > .hero_image_text1 {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  color: #143b3a;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+.hero_image > .hero_image_text1 > svg {
+  width: 40px;
+  height: 40px;
+  background-color: #e2aa40;
+  color: #143b3a;
+  padding: 10px;
+  border-radius: 50%;
+}
+.hero_image > .hero_image_text1 > span {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  font-weight: bold;
+}
+.hero_image > .hero_image_text1 > span > span {
+  font-size: 0.9rem;
+  color: #777;
+  font-weight: normal;
+}
+
+.hero_photo {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+@media screen and (max-width: 789px) {
+  .hero_container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 1.25rem 1rem 1.5rem;
+    margin-top: 0.5rem;
+    width: min(100%, 95%);
+    gap: 1.25rem;
+  }
+
+  .hero_content {
+    width: 100%;
+    gap: 1.15rem;
+    order: 1;
+  }
+
+  .hero_content > h1 {
+    font-size: clamp(1.55rem, 6.2vw, 2.05rem);
+    line-height: 1.28;
+    text-align: right;
+  }
+
+  .hero_content > p {
+    width: 100%;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .hero_buttons {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .hero_buttons > button {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    justify-content: center;
+    font-size: clamp(0.72rem, 2.8vw, 0.88rem);
+    padding: 0.65rem 0.45rem;
+    box-sizing: border-box;
+    white-space: nowrap;
+  }
+
+  .hero_content > hr {
+    width: 100%;
+    margin: 0.35rem 0;
+  }
+
+  .hero_trust {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 0.35rem;
+    width: 100%;
+  }
+
+  .hero_trust_item {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hero_trust_item > p {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: clamp(0.6rem, 2.5vw, 0.72rem);
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .hero_trust_item > p > svg {
+    width: 28px;
+    height: 28px;
+    padding: 6px;
+    flex-shrink: 0;
+  }
+
+  .hero_image {
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+    order: 2;
+    gap: 0;
+    position: relative;
+  }
+
+  /* البطاقة فوق الصورة دائماً على الموبايل */
+  .hero_image > .hero_image_text1 {
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    left: auto;
+    z-index: 2;
+    margin: 0;
+    max-width: min(calc(100% - 16px), 11.5rem);
+    box-sizing: border-box;
+    font-size: 0.8rem;
+    padding: 8px;
+    align-items: center;
+  }
+
+  .hero_image > .hero_image_text1 > svg {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    flex-shrink: 0;
+  }
+
+  .hero_image > .hero_image_text1 > span > span {
+    font-size: 0.68rem;
+  }
+
+  .hero_photo {
+    width: 100%;
+    max-width: 22rem;
+    display: block;
+    position: relative;
+    z-index: 0;
+  }
+}
