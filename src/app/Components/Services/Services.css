@@ -1,0 +1,155 @@
+:root {
+  --primary-color: #143b3a;
+  --secondary-color: #e2aa40;
+  --text-color: #666;
+}
+.services,
+.services_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.services_container {
+  margin-top: 0;
+  gap: 1rem;
+  flex-direction: column;
+  margin-bottom: 5rem;
+}
+.services_container > span {
+  font-size: 1rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+.services_container > h2 {
+  font-size: 2.8rem;
+  text-align: center;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+.services_container > h2 > span {
+  color: var(--secondary-color);
+}
+.services_container > p {
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+.services_cards {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+.services_card {
+  width: 24%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.services_card > svg {
+  width: 50px;
+  height: 50px;
+  background-color: #e3f1f1;
+  border-radius: 10px;
+  padding: 10px;
+  color: var(--primary-color);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+.services_card > h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+.services_card > p {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+.services_card > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary-color);
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.services_card > button > svg {
+  transition: all 0.3s ease;
+}
+.services_card:hover {
+  transform: translateY(-10px);
+}
+.services_card:hover > button > svg {
+  transform: translateX(-10px);
+}
+.services_card.prime {
+  background-color: var(--primary-color);
+}
+.services_card.prime > svg {
+  color: var(--secondary-color);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.services_card.prime > h3 {
+  color: #fff;
+}
+.services_card.prime > p {
+  color: #fff;
+}
+.services_card.prime > button {
+  color: var(--secondary-color);
+}
+.services_card.prime > button > svg {
+  color: var(--secondary-color);
+}
+@media screen and (max-width: 768px) {
+  .services_cards {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .services_card {
+    width: 100%;
+  }
+  .services_card > h3 {
+    font-size: 1.5rem;
+  }
+  .services_card > p {
+    font-size: 1rem;
+  }
+  .services_card.prime {
+    width: 100%;
+  }
+  .services_card.prime > svg {
+    width: 40px;
+    height: 40px;
+  }
+  .services_card.prime > h3 {
+    font-size: 1.5rem;
+  }
+  .services_card.prime > p {
+    font-size: 1rem;
+  }
+  .services_card.prime > button {
+    font-size: 1rem;
+  }
+  .services_container > h2 {
+    font-size: 2rem;
+  }
+  .services_container > p {
+    font-size: 1rem;
+  }
+  .services_container > span {
+    font-size: 1rem;
+  }
+}
