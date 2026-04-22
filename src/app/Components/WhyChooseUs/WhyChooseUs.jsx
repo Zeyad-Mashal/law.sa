@@ -1,30 +1,30 @@
 import React from "react";
 import "./WhyChooseUs.css";
-import { BrainCircuit, Zap, Lock, BadgeCheck } from "lucide-react";
+import { FaBrain, FaBolt, FaLock, FaCircleCheck } from "react-icons/fa6";
 
 const WhyChooseUs = () => {
   const cards = [
     {
       id: "01",
-      icon: <BrainCircuit />,
+      icon: <FaBrain />,
       title: "خبرة قانونية عالية",
       text: "نخبة من المحامين بخبرات تتجاوز عقدين في مختلف التخصصات.",
     },
     {
       id: "02",
-      icon: <Zap />,
+      icon: <FaBolt />,
       title: "سرعة في الاستجابة",
       text: "نلتزم بالرد على استفساراتكم خلال ساعات من تواصلكم معنا.",
     },
     {
       id: "03",
-      icon: <Lock />,
+      icon: <FaLock />,
       title: "خصوصية وأمان",
       text: "حماية كاملة لمعلوماتكم ضمن أعلى معايير السرية المهنية.",
     },
     {
       id: "04",
-      icon: <BadgeCheck />,
+      icon: <FaCircleCheck />,
       title: "فريق سعودي معتمد",
       text: "محامون مرخصون من وزارة العدل وفق الأنظمة السعودية.",
     },
