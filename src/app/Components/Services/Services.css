@@ -34,6 +34,7 @@
 .services_container > p {
   font-size: 1.2rem;
   color: var(--text-color);
+  text-align: center;
 }
 .services_cards {
   width: 100%;
