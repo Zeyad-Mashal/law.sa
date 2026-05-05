@@ -115,6 +115,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
+  const [isOtpVerified, setIsOtpVerified] = useState(false);
   const drawerId = useId();
   const desktopSearchRef = useRef(null);
   const drawerSearchRef = useRef(null);
@@ -174,6 +175,11 @@ export default function Navbar() {
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [searchOpen]);
+
+  useEffect(() => {
+    const verified = localStorage.getItem("otp_success") === "true";
+    setIsOtpVerified(verified);
+  }, []);
 
   function onSearchSubmit(e) {
     e.preventDefault();
@@ -245,12 +251,20 @@ export default function Navbar() {
           </Link>
 
           <div className="nav-actions">
-            <Link href="/login" className="nav-btn-outline">
-              تسجيل الدخول
-            </Link>
-            <Link href="/signup" className="nav-btn-solid nav-btn-compact">
-              إنشاء حساب
-            </Link>
+            {isOtpVerified ? (
+              <Link href="/profile" className="nav-btn-solid nav-btn-compact">
+                الملف الشخصي
+              </Link>
+            ) : (
+              <>
+                <Link href="/login" className="nav-btn-outline">
+                  تسجيل الدخول
+                </Link>
+                <Link href="/signup" className="nav-btn-solid nav-btn-compact">
+                  إنشاء حساب
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -346,20 +360,32 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="nav-drawer-actions">
-            <Link
-              href="/login"
-              className="nav-btn-outline"
-              onClick={() => setMenuOpen(false)}
-            >
-              تسجيل الدخول
-            </Link>
-            <Link
-              href="/signup"
-              className="nav-btn-solid"
-              onClick={() => setMenuOpen(false)}
-            >
-              إنشاء حساب
-            </Link>
+            {isOtpVerified ? (
+              <Link
+                href="/profile"
+                className="nav-btn-solid"
+                onClick={() => setMenuOpen(false)}
+              >
+                الملف الشخصي
+              </Link>
+            ) : (
+              <>
+                <Link
+                  href="/login"
+                  className="nav-btn-outline"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  تسجيل الدخول
+                </Link>
+                <Link
+                  href="/signup"
+                  className="nav-btn-solid"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  إنشاء حساب
+                </Link>
+              </>
+            )}
           </div>
           <div className="nav-drawer-nav">
             {NAV_CATEGORIES.map((item) => (

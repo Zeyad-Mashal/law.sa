@@ -6,18 +6,28 @@ import { Suspense, useMemo, useState } from "react";
 import { FiEye, FiEyeOff, FiArrowRight } from "react-icons/fi";
 import Image from "next/image";
 import "./Login.css";
+import signIn from "../API/SignIn/SignIn";
 
 function validateLogin(phoneDigits) {
   const errors = { phone: "" };
 
   if (!phoneDigits) {
     errors.phone = "أدخل رقم الجوال";
-  } else if (!/^5\d{8}$/.test(phoneDigits)) {
-    errors.phone =
-      "رقم الجوال السعودي يجب أن يبدأ بـ 5 ويتكوّن من 9 أرقام (مثل 5xxxxxxxx)";
+  } else if (!/^\d{9}$/.test(phoneDigits)) {
+    errors.phone = "رقم الجوال يجب أن يتكوّن من 9 أرقام";
   }
 
   return errors;
+}
+
+function extractLoginError(response) {
+  if (response?.error) return response.error;
+  if (typeof response?.data?.message === "string") return response.data.message;
+  if (typeof response?.data?.error === "string") return response.data.error;
+  if (Array.isArray(response?.data?.message) && response.data.message.length > 0) {
+    return String(response.data.message[0]);
+  }
+  return "تعذر تسجيل الدخول";
 }
 
 function LoginForm() {
@@ -29,7 +39,7 @@ function LoginForm() {
   const [errors, setErrors] = useState({ phone: "" });
 
   const canSubmitLogin = useMemo(() => {
-    return /^5\d{8}$/.test(phone);
+    return /^\d{9}$/.test(phone);
   }, [phone]);
 
   function dismissResetBanner() {
@@ -44,14 +54,28 @@ function LoginForm() {
     }
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (!canSubmitLogin) return;
     const next = validateLogin(phone);
     setErrors(next);
     if (next.phone) return;
-    // TODO: استدعاء تسجيل الدخول
-    router.push("/");
+
+    const response = await signIn({ phoneNumber: phone.trim() });
+    if (response.ok) {
+      const token =
+        response?.data?.accessToken ||
+        response?.data?.token ||
+        "temporary-login-token";
+      localStorage.setItem("token", token);
+      router.push(`/login/otp?phone=${encodeURIComponent(phone.trim())}`);
+      return;
+    }
+
+    setErrors((prev) => ({
+      ...prev,
+      phone: extractLoginError(response),
+    }));
   }
 
   return (

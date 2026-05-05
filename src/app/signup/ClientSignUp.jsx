@@ -7,6 +7,7 @@ import { FiArrowRight } from "react-icons/fi";
 import Image from "next/image";
 import "../login/Login.css";
 import "./SignUp.css";
+import signUp from "../API/SignUp/SignUp";
 
 function validateSignUp(name, phoneDigits) {
   const errors = { name: "", phone: "" };
@@ -15,10 +16,20 @@ function validateSignUp(name, phoneDigits) {
   }
   if (!phoneDigits) {
     errors.phone = "أدخل رقم الجوال";
-  } else if (!/^5\d{8}$/.test(phoneDigits)) {
-    errors.phone = "رقم الجوال السعودي يجب أن يبدأ بـ 5 ويتكوّن من 9 أرقام (مثل 5xxxxxxxx)";
+  } else if (!/^\d{9}$/.test(phoneDigits)) {
+    errors.phone = "رقم الجوال يجب أن يتكوّن من 9 أرقام";
   }
   return errors;
+}
+
+function extractSignUpError(response) {
+  if (response?.error) return response.error;
+  if (typeof response?.data?.message === "string") return response.data.message;
+  if (typeof response?.data?.error === "string") return response.data.error;
+  if (Array.isArray(response?.data?.message) && response.data.message.length > 0) {
+    return String(response.data.message[0]);
+  }
+  return "تعذر إنشاء الحساب";
 }
 
 function SignUpForm() {
@@ -28,7 +39,7 @@ function SignUpForm() {
   const [errors, setErrors] = useState({ name: "", phone: "" });
 
   const canSubmit = useMemo(() => {
-    return /^5\d{8}$/.test(phone) && name.trim().length > 0;
+    return /^\d{9}$/.test(phone) && name.trim().length > 0;
   }, [phone, name]);
 
   function handleNameChange(e) {
@@ -42,20 +53,42 @@ function SignUpForm() {
     if (errors.phone) setErrors((prev) => ({ ...prev, phone: "" }));
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (!canSubmit) return;
     const next = validateSignUp(name, phone);
     setErrors(next);
     if (next.name || next.phone) return;
-    // TODO: استدعاء انشاء حساب
-    router.push("/");
+    const response = await signUp({
+      name: name.trim(),
+      phoneNumber: phone.trim(),
+    });
+    if (response.ok) {
+      router.push("/login");
+    } else {
+      setErrors((prev) => ({
+        ...prev,
+        phone: extractSignUpError(response),
+      }));
+    }
   }
 
   return (
     <main className="login-page">
       <div className="login-inner">
-        <Link href="/" style={{ alignSelf: 'flex-start', color: '#64748b', fontSize: '0.875rem', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.35rem', fontWeight: 600 }}>
+        <Link
+          href="/"
+          style={{
+            alignSelf: "flex-start",
+            color: "#64748b",
+            fontSize: "0.875rem",
+            textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.35rem",
+            fontWeight: 600,
+          }}
+        >
           <FiArrowRight /> العودة للرئيسية
         </Link>
         <header className="login-header">
